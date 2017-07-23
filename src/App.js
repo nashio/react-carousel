@@ -20,7 +20,6 @@ class App extends React.Component {
 			index: idxStart,
 			prev: this.getPrevIndex(idxStart),
 			next: this.getNextIndex(idxStart),
-			dir: 'next',
 			move: false,
 		};
 	}
@@ -84,18 +83,18 @@ class App extends React.Component {
 
 	render() {
 		const move = this.state.move ? 'move' : '';
-		const dir = this.state.dir;
+		const dir = this.state.dir + '-dir';
 		return (
 			<div>
 				<div className="mask">
 					<div className="pic-wrapper">
-						<div className={`prev pic ${move}`}>
+						<div className={`prev pic ${move} ${dir}`}>
 							<img src={pics[this.state.prev]} alt="" />
 						</div>
-						<div className={`current pic ${move}`}>
+						<div className={`current pic ${move} ${dir}`}>
 							<img src={pics[this.state.index]} alt="" />
 						</div>
-						<div className={`next pic ${move}`}>
+						<div className={`next pic ${move} ${dir}`}>
 							<img src={pics[this.state.next]} alt="" />
 						</div>
 					</div>

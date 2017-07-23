@@ -10,6 +10,13 @@ body {
 	position: relative;
 }
 
+.pic-wrapper {
+	background: lightgray;
+	left: -300px;
+	position: absolute;
+}
+
+
 .pic {
 	display: inline-block;
 	width: 300px;
@@ -23,23 +30,31 @@ body {
 }
 
 
-.current {
+.current.next-dir {
 	left: 300px;
 }
-
 
 .current.move {
 	left: 0;
 	transition: all .5s ease;
 }
 
-/* .current.move.prev { */
-/* 	left: 0; */
-/* 	transition: all .5s ease; */
-/* } */
-/*  */
+.current.prev-dir {
+	left: 300px;
+}
+
+.current.move.prev-dir {
+	left: 600px;
+	transition: all .5s ease;
+}
+
+
 .next {
 	left: 600px; /* 2x the size of the width */
+}
+
+.next.prev-dir {
+	display: none;
 }
 
 .next.move {
@@ -47,19 +62,21 @@ body {
 	transition: all .5s ease;
 }
 
-.prev {
-	left: -300px; /* -2x the size of the width */
-}
-
-.prev.move {
-	left: 0;
+.next.move.prev-dir {
+	left: 900px;
 	transition: all .5s ease;
 }
 
-.pic-wrapper {
-	background: lightgray;
-	left: -300px;
-	position: absolute;
+.prev {
+	left: 0; /* -2x the size of the width */
+}
 
+.prev.next-dir {
+	display: none;
+}
+
+.prev.move {
+	left: 300px;
+	transition: all .5s ease;
 }
 
