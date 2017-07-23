@@ -34,7 +34,7 @@ button {
   height: auto;
 }
 
-.move {
+.move .pic {
   transition: all .5s ease;
 }
 
@@ -43,11 +43,11 @@ button {
   left: 0;
 }
 
-.next-dir .current.move {
+.move.next-dir .current {
   left: -100%;
 }
 
-.prev-dir .current.move {
+.move.prev-dir .current {
   left: 100%;
 }
 
@@ -61,11 +61,11 @@ button {
   z-index: 1;
 }
 
-.next.move {
+.move .next {
   left: 0;
 }
 
-.prev.move {
+.move .prev {
   left: 0;
 }
 
