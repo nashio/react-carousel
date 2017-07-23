@@ -15,13 +15,12 @@ class App extends Component {
     this.handlePrev = this.handlePrev.bind(this);
     this.handleNext = this.handleNext.bind(this);
     this.state = {
-      index: idxStart,
+      current: idxStart,
       prev: this.getPrevIndex(idxStart),
-      next: this.getNextIndex(idxStart),
-      dir: 'next',
-      move: false,
+      next: this.getNextIndex(idxStart)
     };
-    // this.autoStart = true;
+    // enable for autoplay
+    // this.autoPlay = true;
   }
 
   getPrevIndex(idx) {
@@ -40,7 +39,7 @@ class App extends Component {
 
   setIndexes(idx, dir) {
     this.setState({
-      index: idx,
+      current: idx,
       prev: this.getPrevIndex(idx),
       next: this.getNextIndex(idx),
       dir
@@ -61,9 +60,9 @@ class App extends Component {
         move: false
       });
       if (direction === 'next') {
-        this.setIndexes(this.getNextIndex(this.state.index), 'next');
+        this.setIndexes(this.getNextIndex(this.state.current), 'next');
       } else {
-        this.setIndexes(this.getPrevIndex(this.state.index), 'prev');
+        this.setIndexes(this.getPrevIndex(this.state.current), 'prev');
       }
       this.moving = false;
     }, 500);
@@ -71,7 +70,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if (this.autoStart) {
+    if (this.autoPlay) {
       setInterval(this.handleNext, 2000);
     }
   }
@@ -95,7 +94,7 @@ class App extends Component {
               <img src={pics[this.state.prev]} alt="" />
             </div>
             <div className="current pic">
-              <img src={pics[this.state.index]} alt="" />
+              <img src={pics[this.state.current]} alt="" />
             </div>
             <div className="next pic">
               <img src={pics[this.state.next]} alt="" />
