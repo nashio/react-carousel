@@ -20,8 +20,10 @@ class App extends Component {
       index: idxStart,
       prev: this.getPrevIndex(idxStart),
       next: this.getNextIndex(idxStart),
+      dir: 'next',
       move: false,
     };
+    // this.autoStart = true;
   }
 
   getPrevIndex(idx) {
@@ -48,11 +50,14 @@ class App extends Component {
   }
 
   transitionSlide(direction) {
+    if (this.moving) return;
     // start animation
     this.setState({
+      dir: direction,
       move: true
     });
     // stop animation
+    this.moving = true;
     setTimeout(() => {
       this.setState({
         move: false
@@ -62,14 +67,14 @@ class App extends Component {
       } else {
         this.setIndexes(this.getPrevIndex(this.state.index), 'prev');
       }
-
+      this.moving = false;
     }, 500);
 
   }
 
   componentDidMount() {
     if (this.autoStart) {
-      setInterval(this.transitionSlide, 2000);
+      setInterval(this.handleNext, 2000);
     }
   }
 
@@ -86,15 +91,15 @@ class App extends Component {
     const dir = this.state.dir + '-dir';
     return (
       <div>
-        <div className="mask">
-          <div className="pic-wrapper">
-          <div className={`prev pic ${move} ${dir}`}>
+        <div className="carousel-mask">
+          <div className={`pic-wrapper ${dir}`}>
+          <div className={`prev pic ${move}`}>
             <img src={pics[this.state.prev]} alt="" />
           </div>
-          <div className={`current pic ${move} ${dir}`}>
+          <div className={`current pic ${move}`}>
             <img src={pics[this.state.index]} alt="" />
           </div>
-          <div className={`next pic ${move} ${dir}`}>
+          <div className={`next pic ${move}`}>
             <img src={pics[this.state.next]} alt="" />
           </div>
         </div>
