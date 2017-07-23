@@ -1,0 +1,65 @@
+body {
+	font-family: helvetica, arial;
+}
+
+.mask {
+	left: 0;
+	overflow: hidden;
+	width: 300px;
+	height: 300px;
+	position: relative;
+}
+
+.pic {
+	display: inline-block;
+	width: 300px;
+	height: 300px;
+	position: absolute;
+}
+
+.pic img {
+	width: 300px;
+	height: auto;
+}
+
+
+.current {
+	left: 300px;
+}
+
+
+.current.move {
+	left: 0;
+	transition: all .5s ease;
+}
+
+/* .current.move.prev { */
+/* 	left: 0; */
+/* 	transition: all .5s ease; */
+/* } */
+/*  */
+.next {
+	left: 600px; /* 2x the size of the width */
+}
+
+.next.move {
+	left: 300px;
+	transition: all .5s ease;
+}
+
+.prev {
+	left: -300px; /* -2x the size of the width */
+}
+
+.prev.move {
+	left: 0;
+	transition: all .5s ease;
+}
+
+.pic-wrapper {
+	background: lightgray;
+	left: -300px;
+	position: absolute;
+
+}
+
