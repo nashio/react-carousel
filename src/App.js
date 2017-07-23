@@ -91,16 +91,16 @@ class App extends Component {
       <div>
         <div className="carousel-mask">
           <div className={`pic-wrapper ${dir}`}>
-          <div className={`prev pic ${move}`}>
-            <img src={pics[this.state.prev]} alt="" />
+            <div className={`prev pic ${move}`}>
+              <img src={pics[this.state.prev]} alt="" />
+            </div>
+            <div className={`current pic ${move}`}>
+              <img src={pics[this.state.index]} alt="" />
+            </div>
+            <div className={`next pic ${move}`}>
+              <img src={pics[this.state.next]} alt="" />
+            </div>
           </div>
-          <div className={`current pic ${move}`}>
-            <img src={pics[this.state.index]} alt="" />
-          </div>
-          <div className={`next pic ${move}`}>
-            <img src={pics[this.state.next]} alt="" />
-          </div>
-        </div>
         </div>
         <div className="nav">
           <button onClick={this.handlePrev}>prev</button>
