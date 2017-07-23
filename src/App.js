@@ -53,8 +53,9 @@ class App extends Component {
       dir: direction,
       move: true
     });
-    // stop animation
     this.moving = true;
+
+    // stop animation
     setTimeout(() => {
       this.setState({
         move: false
